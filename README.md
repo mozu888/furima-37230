@@ -1,43 +1,49 @@
 # itemsテーブル
-| Column         | type       | option                        |
-| -------------- | ---------- | ----------------------------- |
-| item_name      | string     | null:false                    |
-| image          | text       | null:false                    |
-| explanation    | text       | null:false                    |
-| category       | text       | null:false                    |
-| status         | text       | null:false                    |
-| delivery_fee   | integer    | null:false                    |
-| delivery_place | text       | null:false                    |
-| delivery_days  | text       | null:false                    |
-| price          | integer    | null:false                    |
-| user           | references | null:false, foreign_key: true | 
+| Column            | type       | option                        |
+| ----------------- | ---------- | ----------------------------- |
+| item_name         | string     | null:false                    |
+| explanation       | text       | null:false                    |
+| category_id       | integer    | null:false                    |
+| status_id         | integer    | null:false                    |
+| delivery_fee_id   | integer    | null:false                    |
+| prefecture_id     | integer    | null:false                    |
+| delivery_days_id  | integer    | null:false                    |
+| price             | integer    | null:false                    |
+| user              | references | null:false, foreign_key: true | 
 
 # association
 belongs_to :user
 has_one :buy
 
 # buysテーブル
-| Column       | type       | option                         |
-| ------------ | ---------- | ------------------------------ |
-| user         | references | null: false, foreign_key: true |
-| postal_code  | integer    | null: false                    |
-| prefectures  | text       | null: false                    |
-| municipality | string     | null: false                    |
-| address      | string     | null: false                    |
-| building     | string     |                                |
-| call_number  | integer    | null: false                    |
-| item         | references | null: false, foreign_key: true |
+| Column | type       | option                         |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 # association
 belongs_to :user
 belongs_to :item
+has_one :delivery
+
+# deliveriesテーブル
+| Column        | type    | option                         |
+| ------------- | ------- | ------------------------------ |
+| postal_code   | string  | null: false                    |
+| prefecture_id | integer | null: false                    |
+| municipality  | string  | null: false                    |
+| address       | string  | null: false                    |
+| building      | string  |                                |
+| call_number   | string  | null: false                    |
+
+# association
+belongs_to :buy
 
 # usersテーブル
 | column             | type   | option                    |
 | ------------------ | ------ | ------------------------- |
 | nickname           | string | null: false               |
 | email              | string | null: false, unique: true |
-| password           | string | null: false               |
 | encrypted_password | string | null: false               |
 | first_name         | string | null: false               |
 | last_name          | string | null: false               |
