@@ -1,15 +1,15 @@
 # itemsテーブル
-| Column            | type       | option                        |
-| ----------------- | ---------- | ----------------------------- |
-| item_name         | string     | null:false                    |
-| explanation       | text       | null:false                    |
-| category_id       | integer    | null:false                    |
-| status_id         | integer    | null:false                    |
-| delivery_fee_id   | integer    | null:false                    |
-| prefecture_id     | integer    | null:false                    |
-| delivery_days_id  | integer    | null:false                    |
-| price             | integer    | null:false                    |
-| user              | references | null:false, foreign_key: true | 
+| Column          | type       | option                        |
+| --------------- | ---------- | ----------------------------- |
+| item_name       | string     | null:false                    |
+| explanation     | text       | null:false                    |
+| category_id     | integer    | null:false                    |
+| status_id       | integer    | null:false                    |
+| delivery_fee_id | integer    | null:false                    |
+| prefecture_id   | integer    | null:false                    |
+| delivery_day_id | integer    | null:false                    |
+| price           | integer    | null:false                    |
+| user            | references | null:false, foreign_key: true | 
 
 # association
 belongs_to :user
@@ -27,14 +27,15 @@ belongs_to :item
 has_one :delivery
 
 # deliveriesテーブル
-| Column        | type    | option                         |
-| ------------- | ------- | ------------------------------ |
-| postal_code   | string  | null: false                    |
-| prefecture_id | integer | null: false                    |
-| municipality  | string  | null: false                    |
-| address       | string  | null: false                    |
-| building      | string  |                                |
-| call_number   | string  | null: false                    |
+| Column        | type      | option                          |
+| ------------- | --------- | ------------------------------- |
+| postal_code   | string    | null: false                     |
+| prefecture_id | integer   | null: false                     |
+| municipality  | string    | null: false                     |
+| address       | string    | null: false                     |
+| building      | string    |                                 |
+| call_number   | string    | null: false                     |
+| buy           | reference | null: false, foreign_keys: true |
 
 # association
 belongs_to :buy
