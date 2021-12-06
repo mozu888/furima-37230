@@ -26,6 +26,7 @@ has_one :buy
 | address      | string     | null: false                    |
 | building     | string     |                                |
 | call_number  | integer    | null: false                    |
+| item         | references | null: false, foreign_key: true |
 
 # association
 belongs_to :user
@@ -43,6 +44,7 @@ belongs_to :item
 | first_name_kana    | string | null: false               |
 | last_name_kana     | string | null: false               |
 | dob                | date   | null: false               |
+
 # association
 has_many :items
 has_many :buys
