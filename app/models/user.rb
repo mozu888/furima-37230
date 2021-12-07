@@ -17,4 +17,5 @@ class User < ApplicationRecord
     validates :password
     validates :password_confirmation
   end
+  has_many :items
 end
