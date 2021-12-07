@@ -13,7 +13,7 @@ class User < ApplicationRecord
     validates :first_name_kana
   end
   validates :dob, presence: true
-  with_options format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}/i } do
+  with_options format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z{6,}/ } do
     validates :password
     validates :password_confirmation
   end
