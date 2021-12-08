@@ -12,7 +12,7 @@ class Item < ApplicationRecord
     validates :item_name
     validates :explanation
     validates :image
-    validates :price, numericality: true, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
+    validates :price, numericality: { only_integer: true}, inclusion: { in: 300..9_999_999 }
   end
   with_options numericality: { other_than: 1 , message: "can't be blank"} do
     validates :category_id
