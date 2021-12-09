@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
   end
   def destroy
     @item.destroy
+    redirect_to root_path
   end
   private 
   def item_params
