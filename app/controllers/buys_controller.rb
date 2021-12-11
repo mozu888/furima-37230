@@ -4,6 +4,7 @@ class BuysController < ApplicationController
     @buy_delivery = BuyDelivery.new
   end
   def create
+    @item = Item.find(params[:item_id])
     @buy_delivery = BuyDelivery.new(buy_params)
     if @buy_delivery.valid?
       pay_item
@@ -20,8 +21,7 @@ class BuysController < ApplicationController
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: buy_params[:price]
-      card: buyparams[:token],
+      card: buy_params[:token],
       currency: 'jpy'
     )
   end
