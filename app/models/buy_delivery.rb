@@ -9,6 +9,7 @@ class BuyDelivery
     validates :address
     validates :call_number, format: { with: /\A[0-9]{10,11}\z/ }
     validates :user_id
+    validates :item_id
   end
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   def save
