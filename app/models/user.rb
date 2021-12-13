@@ -18,4 +18,5 @@ class User < ApplicationRecord
     validates :password_confirmation
   end
   has_many :items
+  has_many :buys
 end

@@ -21,4 +21,5 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :status_id
   end
+  has_one :buy
 end
